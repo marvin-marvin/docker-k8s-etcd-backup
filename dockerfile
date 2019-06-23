@@ -1,6 +1,5 @@
 FROM marvinmarvin/docker-k8s-rclone
 ARG ETCD_VERSION=3.3.10
-
 RUN apt-get update -y && \
     apt-get install wget && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
