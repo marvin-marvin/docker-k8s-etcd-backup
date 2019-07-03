@@ -46,8 +46,10 @@ spec:
         volumeMounts:
         - mountPath: /etc/cron.d
           name: k8s-cfg-etcd-backup
+          readOnly: true
         - mountPath: /root/.config/rclone
           name: k8s-cfg-etcd-backup
+          readOnly: true
         - mountPath: /etc/kubernetes
           name: etc-kubernetes
           readOnly: true
