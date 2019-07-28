@@ -49,7 +49,7 @@ spec:
           readOnly: true
         - mountPath: /root/.config/rclone
           name: k8s-cfg-etcd-backup
-          readOnly: true
+          readOnly: false
         - mountPath: /etc/kubernetes
           name: etc-kubernetes
           readOnly: true
