@@ -8,3 +8,4 @@ RUN wget --no-check-certificate -q https://github.com/coreos/etcd/releases/downl
     mv etcd-v${ETCD_VERSION}-linux-amd64/etcd* /bin/ && \
     rm -Rf etcd-v${ETCD_VERSION}-linux-amd64*
 RUN mkdir /root/etcd-backup
+#
