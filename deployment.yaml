@@ -1,16 +1,16 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
     deployment.kubernetes.io/revision: "9"
-    description: WAN etcd-backup
+    description: LAN etcd-backup
   creationTimestamp: null
   generation: 1
   labels:
     k8s-app: etcd-backup
-    location: wan
+    location: lan
   name: etcd-backup
-  selfLink: /apis/extensions/v1beta1/namespaces/lan/deployments/etcd-backup
+  selfLink: /apis/apps/v1/namespaces/lan/deployments/etcd-backup
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -18,7 +18,7 @@ spec:
   selector:
     matchLabels:
       k8s-app: etcd-backup
-      location: wan
+      location: lan
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -27,11 +27,11 @@ spec:
   template:
     metadata:
       annotations:
-        description: WAN etcd-backup
+        description: LAN etcd-backup
       creationTimestamp: null
       labels:
         k8s-app: etcd-backup
-        location: wan
+        location: lan
       name: etcd-backup
     spec:
       containers:
@@ -70,8 +70,8 @@ spec:
           type: Directory
       dnsPolicy: ClusterFirst
       hostNetwork: true
-      nodeSelector:
-        kubernetes.io/hostname: vps-us-ny-kube-1
+#      nodeSelector:
+#        kubernetes.io/hostname: vps-us-ny-kube-1
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
